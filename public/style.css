@@ -1,0 +1,72 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+* {margin:0;padding:0;}
+body {
+    font-family: 'Open Sans';
+    font-weight: normal;
+}
+#page {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+#top {
+    margin: 30px 0;
+}
+#top h1 {
+    font-weight: normal;
+    font-size: 4em;
+    color: #cc3300;
+}
+#top p {
+    letter-spacing: 0.08em;
+}
+.hide {
+    opacity: 0;
+}
+td,th {
+    min-width: 120px;
+}
+input {
+    border: 1px solid #bbb;
+    padding: 3px;
+    margin: 0 3px;
+}
+.penger {
+    width: 60px;
+}
+td .description {
+    background-color: #eee;
+}
+a {
+    color: #cc3300;
+    text-decoration: none;
+}
+a:hover {
+    transition: color 0.2s;
+    color: darkgray;
+}
+.right {
+    text-align: right;
+}
+.sec {
+    margin: 30px 20px;
+    position: relative;
+    padding-top: 30px;
+    background-color: #fafafa;
+}
+#tips .hint {
+    font-size: 0.8em;
+    font-style: italic;
+    list-style: none;
+}
+.sec h1 {
+    font-size: 2em;
+    position: absolute;
+    left: -20px;
+    opacity: 0.6;
+    top: -20px;
+}
+main footer {
+    font-size: 0.7em;
+    margin-top: 30px;
+}

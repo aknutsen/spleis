@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>simpelspleis</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel='stylesheet' href='public/style.css' />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    </head>
+    <body>
+        <section id='page'>
+            <section id="top">
+                <h1><strong>simpel</strong>spleis</h1>
+                <p>en enklere kostnadsfordelingsapplikasjon</p>
+            </section>
+            <main>
+                <section id="def" class="sec">
+                    <h1>oppsett</h1>
+                    <label for="addmember">ny deltaker: </label>
+                    <input type="text" id="addmember" placeholder="<navn>" />
+                    <table id='matrix'></table>
+                    <section class="right">
+                        <a href="#" id="newline">linjer++</a>
+                    </section>
+                
+                </section>
+                <section class="sec">
+                    <h1>oppgjør</h1>
+                    <p id="oppgjør"></p>
+                </section>
+                
+                <section id="tips" class="sec">
+                    <h1>tips og triks</h1>
+                    <ul>
+                        <li class="hint">Du kan trykke ctrl + L for å generere et nytt bilag</li>
+                    </ul>
+                </section>
+                
+                <nav>
+                    <a href="#" id="reset">begynn på nytt</a>
+                </nav>
+                
+                <footer>
+                    <p>Denne siden er et produkt i serien "Anders gjør ting han ikke kan"</p>
+                </footer>
+            </main>
+        </section>
+        <script src="public/script.js"></script>
+    </body>
+</html>
+
