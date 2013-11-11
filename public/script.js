@@ -3,7 +3,8 @@ var names = new Array();
 $(document).ready(function() {    
     $("#addmember").focus();
     $("#addmember").on("keyup", function(event) {
-        if (event.which === 13){
+        if (event.which === 13) // ENTER
+        {
             var name =  $(this).val();
             if (name.length>0){
                 $(this).val("");
@@ -15,9 +16,10 @@ $(document).ready(function() {
                 var header = createHeader();
                 $("#matrix tr:first").remove();
                 $("#matrix").prepend(header);
-                $(".row").each(function() {
-                    $(this).append(creatInputFor(newUser))
-                });
+                var rows = $(".row");
+                for (i = 0; i < rows.length; i++) {
+                    $(rows[i]).append(createInputFor(newUser));
+                }
             }
         }
     });
@@ -59,18 +61,18 @@ $(document).ready(function() {
         description.focus();
     }
     
-    function createInputFor(name){
+    function createInputFor(user){
         var input = $("<input>");
-            input.addClass(names[i].name + " penger");
-            input.on('change', beregnOppgjør);
+            input.addClass(user.name + " penger");
+            input.on('change', calculate);
             var cell = $("<td>");
             cell.append($("<label>kr</label>"))
                 .append(input);
         return cell;
     }
 
-    function beregnOppgjør() {
-        $("#oppgjør").empty();
+    function calculate() {
+        $("#calculations").empty();
         for(var i = 0;i < names.length; i++) {
             calculateCostsFor(names[i]);
         }
@@ -95,13 +97,13 @@ $(document).ready(function() {
             {
                 var trans = $("<p><strong>" + t.from.name + "</strong> skylder <strong>" 
                         + t.to.name + " " + t.amount + "kr</strong></p>");
-                $("#oppgjør").append(trans);
-            }
-            else {
-                alert(t.amount);
+                $("#calculations").append(trans);
             }
         }
-        $("#oppgjør").slideDown();
+        if (transfers.length == 0){
+            $("#calculations").append($("<p>Status quo!</p>"))
+        }
+        $("#calculations").slideDown();
     }
     function calculateAmount(from, to, target) {
         var toDiff = to.sum - target;
@@ -162,7 +164,7 @@ $(document).ready(function() {
     
     function reset() {
         names = new Array();
-        $("#oppgjør").empty();
+        $("#calculations").empty();
         $("#matrix").empty();
         $("#addmember").focus();
     }
