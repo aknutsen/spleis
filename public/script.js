@@ -102,7 +102,7 @@ $(document).ready(function() {
                 $("#calculations").append(trans);
             }
         }
-        if (transfers.length == 0){
+        if (transfers.length === 0){
             $("#calculations").append($("<p>Status quo!</p>"))
         }
         $("#calculations").slideDown();
