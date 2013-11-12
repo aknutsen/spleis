@@ -78,11 +78,13 @@ $(document).ready(function() {
         }
         var sharePerUser = getTotalCost()/names.length;
         var transfers = new Array();
-        while(!isDone(transfers) && transfers.length < 20) {
+        while(transfers.length < 20) {
             var fromUser =  findLeastContributingUser();
             var receiver = findNextReceiver();
             var amount = calculateAmount(fromUser, receiver, sharePerUser);
-            
+            if (amount <= 0) {
+                break;
+            }
             transfers = transfers.concat({
                 'from': fromUser,
                 'to': receiver,
@@ -105,14 +107,13 @@ $(document).ready(function() {
         }
         $("#calculations").slideDown();
     }
+    
     function calculateAmount(from, to, target) {
         var toDiff = to.sum - target;
         var fromDiff = target - from.sum;
-        var amount = fromDiff;
-        if (toDiff < fromDiff)
-            amount = toDiff;
-        return round(amount);
+        return round(Math.min(fromDiff, toDiff));
     }
+    
     function findLeastContributingUser(){
         var user = names[0];
         for (i = 1; i < names.length; i++) {
@@ -133,15 +134,6 @@ $(document).ready(function() {
         return user;
     }
     
-    function isDone(){
-        var sum = names[0].sum;
-        for (i = 1; i < names.length; i++) {
-            if (Math.abs(names[i].sum - sum) >= 0.01)
-                return false;
-        }
-        return true;
-    }
-
     function calculateCostsFor(user) {
         user.sum = 0;
         var inp = $("input."+user.name);
