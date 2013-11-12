@@ -103,7 +103,7 @@ $(document).ready(function() {
             }
         }
         if (transfers.length === 0){
-            $("#calculations").append($("<p>Status quo!</p>"))
+            $("#calculations").append($("<p>Status quo!</p>"));
         }
         $("#calculations").slideDown();
     }
