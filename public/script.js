@@ -45,6 +45,9 @@ $(document).ready(function() {
     }
 
     function addNewLine() {
+        if (names.length === 0)
+            return; 
+        
         var row =$("<tr>");
         row.addClass("hide row");
         
